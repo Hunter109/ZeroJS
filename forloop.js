@@ -1,8 +1,8 @@
-// wrting code in. which sum of two digit is 10
+// wrting code in.which sum of two digit is 10
 
-// for (let i = 1, j = 9; i <= 9, j >= 1; i++, j--) {
-//     console.log(`${i}${j}`)
-// }
+for (let i = 1, j = 9; i <= 9, j >= 1; i++, j--) {
+    console.log(`${i}${j}`)
+}
 
 
 let array = [10, 20, 30, 40, 50];

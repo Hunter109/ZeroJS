@@ -19,3 +19,13 @@ for (let value of array) {
 for (let index in array) {
     console.log(array[index])
 }
+
+
+let subjects = [["chemistry ", "physics"], ["c++", "c"], ["dsap", "os"]];
+
+for (let subject of subjects) {
+    for (let sub of subject) {
+        console.log(sub)
+
+    }
+}

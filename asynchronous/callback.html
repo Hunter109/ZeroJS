@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Callb back color changing</title>
 </head>
 
@@ -14,22 +14,48 @@
 </body>
 <script>
     let h1 = document.querySelector("h1");
-    function colorChange(color, delay, nextColorChange) {
-        setTimeout(() => {
-            h1.style.backgroundColor = color;
-            h1.style.color = "white";
+    // function colorChange(color, delay, nextColorChange) {
+    //     setTimeout(() => {
+    //         h1.style.backgroundColor = color;
+    //         h1.style.color = "white";
 
-            if (nextColorChange) {
-                nextColorChange()
-            }
-            ;
-        }, delay)
+    //         if (nextColorChange) {
+    //             nextColorChange()
+    //         }
+    //         ;
+    //     }, delay)
+    // }
+    // colorChange("Red", 1000, () => {
+    //     colorChange("green", 1000, () => {
+    //         colorChange("blue", 1000);
+    //     })
+    // })
+
+    // now using promise
+
+    function colorChange(color, delay) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                h1.style.backgroundColor = color;
+                h1.style.color = "white";
+                resolve(` ${color} color change sucessfuly`);
+            }, delay);
+        });
     }
-    colorChange("Red", 1000, () => {
-        colorChange("green", 1000, () => {
-            colorChange("blue", 1000);
+
+    let prom = colorChange("red", 1000);
+    prom
+        .then((result) => {
+            console.log(result);
+            return colorChange("green", 1000);
         })
-    })
+        .then((result) => {
+            console.log(result);
+            return colorChange("blue", 1000);
+        })
+        .then((result) => {
+            console.log(result);
+        });
 </script>
 
 </html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callb back color changing</title>
+</head>
+
+<body>
+    <main>
+        <h1>CallBack Hell</h1>
+    </main>
+</body>
+<script>
+    let h1 = document.querySelector("h1");
+    function colorChange(color, delay, nextColorChange) {
+        setTimeout(() => {
+            h1.style.backgroundColor = color;
+            h1.style.color = "white";
+
+            if (nextColorChange) {
+                nextColorChange()
+            }
+            ;
+        }, delay)
+    }
+    colorChange("Red", 1000, () => {
+        colorChange("green", 1000, () => {
+            colorChange("blue", 1000);
+        })
+    })
+</script>
+
+</html>

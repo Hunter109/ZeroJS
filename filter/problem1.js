@@ -10,6 +10,6 @@ console.log(even);
 // 17. Filter `['apple', 'banana', 'kiwi']` to get strings longer than 4 characters.
 let fruits = ['apple', 'banana', 'kiwi'];
 let fruit = fruits.filter((fruits) => {
-    return fruits.length == 4;
+    return fruits.length > 4;
 })
 console.log(fruit)
